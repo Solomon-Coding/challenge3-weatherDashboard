@@ -1,0 +1,31 @@
+header {
+    height: 60px;
+    display: flex;
+    background-image: linear-gradient(to right, rgb(70,90,184),rgb(38,19,96));
+    padding: 5px 25% 5px 5px;
+    margin: 10px;
+    color: white;
+    flex-direction: row;
+    justify-content: flex-end;
+    font-size: larger;
+}
+
+.banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#area1{
+background-color: aqua;
+height: 500px;
+}
+
+#area2{
+    background-color:blueviolet;
+    height: 50px;
+}
+#area3{
+    background-color:brown;
+    height: 50px;
+}
