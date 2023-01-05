@@ -18,7 +18,7 @@ header {
 
 #area1{
 background-color: aqua;
-height: 500px;
+height: 30px;
 }
 
 #area2{
@@ -27,5 +27,9 @@ height: 500px;
 }
 #area3{
     background-color:brown;
+    height: 50px;
+}
+#area4{
+    background-color:blue;
     height: 50px;
 }
