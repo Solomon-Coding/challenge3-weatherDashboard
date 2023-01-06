@@ -27,9 +27,16 @@ height: 30px;
 }
 #area3{
     background-color:brown;
-    height: 50px;
+    height: 150px;
+    border:2px solid grey;
+    border-radius: 2px;
 }
 #area4{
     background-color:blue;
     height: 50px;
+    height: 150px;
+}
+
+main div{
+    width: 100%;
 }
