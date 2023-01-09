@@ -30,8 +30,11 @@ function weather(lon,lat,APIKey){
     })
     .then(function (data) {
       console.log(data);
-      console.log(data.list[0].main.temp)
-      
+      console.log(data.list[0].main.temp-273.15)
+      console.log(data.list[8].main.temp-273.15)
+      console.log(data.list[16].main.temp-273.15)
+      console.log(data.list[24].main.temp-273.15)
+      console.log(data.list[32].main.temp-273.15)
     });
 }
 
