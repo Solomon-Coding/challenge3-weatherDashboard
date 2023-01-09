@@ -6,6 +6,7 @@ var tempEl = document.querySelectorAll('.temp');
 var windEl = document.querySelectorAll('.wind');
 var humidityEl = document.querySelectorAll('.humidity');
 var iconEl = document.querySelectorAll(".card-img-top");
+var cityEl = document.querySelector(".city");
 
 function geoLocation(locationURL,APIKey){
   fetch(locationURL,
@@ -34,12 +35,13 @@ function weather(lon,lat,APIKey){
     })
     .then(function (data) {
       console.log(data);
-      for (var i=1;i<dateEl.length;i++) {
-        dateEl[i].textContent=new Date(data.list[i*8].dt_txt).toLocaleDateString();
-        iconEl[i].src= "http://openweathermap.org/img/w/" + data.list[i*8].weather[0].icon + ".png";
-        tempEl[i].textContent=Math.round(data.list[i*8].main.temp-273.15) + "\u00B0" + "F";
-        windEl[i].textContent=data.list[i*8].wind.speed + " MPH";
-        humidityEl[i].textContent=data.list[i*8].main.humidity + "%";
+      console.log(dateEl.length)
+      for (var i=0;i<dateEl.length-1;i++) {
+        dateEl[i+1].textContent=new Date(data.list[i*8].dt_txt).toLocaleDateString();
+        iconEl[i+1].src= "http://openweathermap.org/img/w/" + data.list[i*8].weather[0].icon + ".png";
+        tempEl[i+1].textContent=Math.round(data.list[i*8].main.temp-273.15) + " \u00B0" + "F";
+        windEl[i+1].textContent=data.list[i*8].wind.speed + " MPH";
+        humidityEl[i+1].textContent=data.list[i*8].main.humidity + " %";
       }
     });
     var currentWeatherURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey;
@@ -52,11 +54,13 @@ function weather(lon,lat,APIKey){
           return response.json();
         })
         .then(function (data) {
-            dateEl[0].textContent=new Date(data.dt).toLocaleDateString();
-            tempEl[0].textContent=Math.round(data.main.temp-273.15) + "\u00B0" + "F";
-            windEl[0].textContent=data.wind.speed + " MPH";
-            humidityEl[0].textContent=data.main.humidity + "%";
+          console.log(data)
+            tempEl[0].textContent= Math.round(data.main.temp-273.15) + " \u00B0" + "F";
+            windEl[0].textContent= data.wind.speed + " MPH";
+            humidityEl[0].textContent=data.main.humidity + " %";
             iconEl[0].src= "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
+            dateEl[0].textContent = "(" + new Date(data.dt).toLocaleDateString() + ")";
+            cityEl.textContent= data.name;
         });
 }
 

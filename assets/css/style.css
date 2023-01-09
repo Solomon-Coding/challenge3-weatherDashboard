@@ -38,14 +38,23 @@ h3 {
 #area1{
 background-color: aqua;
 height: 150px;
-
 }
+
+#todayTop{
+    display: flex;
+}
+
+.element {
+    margin: 0px 5px;
+}
+
 
 #area2{
     background-color:blueviolet;
     height: 50px;
 }
 #area3{
+    display: inline-block;
     background-color:brown;
     height: 150px;
     border:2px solid grey;
