@@ -1,14 +1,18 @@
+// Variables
 var APIKey = "72ddd287ed4d6c4333abbfd25983a46c";
 var city = "London"
-var locationURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=" + APIKey;
+
 var dateEl = document.querySelectorAll('.card-title');
 var tempEl = document.querySelectorAll('.temp');
 var windEl = document.querySelectorAll('.wind');
 var humidityEl = document.querySelectorAll('.humidity');
 var iconEl = document.querySelectorAll(".card-img-top");
 var cityEl = document.querySelector(".city");
+var searchBtnEl = document.querySelector(".search-btn");
+var searchValEl = document.querySelector(".form-control");
 
-function geoLocation(locationURL,APIKey){
+function geoLocation(city,APIKey){
+  var locationURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=" + APIKey;
   fetch(locationURL,
     {
         cache: "reload"
@@ -17,6 +21,7 @@ function geoLocation(locationURL,APIKey){
         return response.json();
         })
         .then(function (data) {
+          console.log(data)
         var lat=data[0].lat;
         var lon=data[0].lon;
         weather(lon,lat,APIKey)
@@ -34,8 +39,6 @@ function weather(lon,lat,APIKey){
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
-      console.log(dateEl.length)
       for (var i=0;i<dateEl.length-1;i++) {
         dateEl[i+1].textContent=new Date(data.list[i*8].dt_txt).toLocaleDateString();
         iconEl[i+1].src= "http://openweathermap.org/img/w/" + data.list[i*8].weather[0].icon + ".png";
@@ -54,7 +57,6 @@ function weather(lon,lat,APIKey){
           return response.json();
         })
         .then(function (data) {
-          console.log(data)
             tempEl[0].textContent= Math.round(data.main.temp-273.15) + " \u00B0" + "F";
             windEl[0].textContent= data.wind.speed + " MPH";
             humidityEl[0].textContent=data.main.humidity + " %";
@@ -64,4 +66,12 @@ function weather(lon,lat,APIKey){
         });
 }
 
-geoLocation(locationURL,APIKey);
+geoLocation(city,APIKey);
+
+// On click events
+searchBtnEl.addEventListener("click", function() {
+  city = searchValEl.value;
+  console.log(city)
+  geoLocation(city,APIKey);
+  
+});

@@ -20,12 +20,14 @@
   <main class="container">
     <div class="row">
       <div class="col-3">
-        <div id="area1" class="row">
-          search box
-          <label for="name">Name (4 to 8 characters):</label>
-
-          <input type="text" id="citySearch" name="citySearch" required
-            minlength="4" maxlength="8" size="6">
+        <div id="area1" class="row">  
+          <h4>Search For a City:</h4>
+          <div class="input-group-sm">
+            <input type="text" class="form-control" placeholder="Location" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary search-btn" type="button">Search</button>
+            </div>
+          </div>
 
         </div>
         <div id="area2" class="row">
