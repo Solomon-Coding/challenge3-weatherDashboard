@@ -1,6 +1,6 @@
 // Variables
 var APIKey = "72ddd287ed4d6c4333abbfd25983a46c";
-var city = "London"
+var city = "London";
 
 var dateEl = document.querySelectorAll('.card-title');
 var tempEl = document.querySelectorAll('.temp');
@@ -10,6 +10,8 @@ var iconEl = document.querySelectorAll(".card-img-top");
 var cityEl = document.querySelector(".city");
 var searchBtnEl = document.querySelector(".search-btn");
 var searchValEl = document.querySelector(".form-control");
+var searchHistoryEl = document.querySelector(".searchHistory");
+var count = 0;
 
 function geoLocation(city,APIKey){
   var locationURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=" + APIKey;
@@ -73,5 +75,45 @@ searchBtnEl.addEventListener("click", function() {
   city = searchValEl.value;
   console.log(city)
   geoLocation(city,APIKey);
-  
+  localStorage.setItem("city"+count, city);
+  count=count+1;
+  var searchEntryEl = $('<div>').text(city);
+  // var searchEntryEl = $('<div>').text(city);
+  searchHistoryEl.append(searchEntryEl)
 });
+
+
+function readCitiesFromStorage() {
+  var cities = localStorage.getItem('cities');
+  if (cities) {
+    cities = JSON.parse(cities);
+  } else {
+    cities = [];
+  }
+  return cities;
+}
+
+function saveCitiesToStorage(cities) {
+  localStorage.setItem('cities', JSON.stringify(cities));
+}
+
+// Gets project data from local storage and displays it
+function printCityData() {
+  // clear current cities on the page
+  projectDisplayEl.empty();
+
+  // get cities from localStorage
+  var cities = readCitiesFromStorage();
+
+    // Create row and columns for project
+    var rowEl = $('<tr>');
+    var nameEL = $('<td>').text(project.name);
+    var typeEl = $('<td>').text(project.type);
+    var dateEl = $('<td>').text(projectDate.format('MM/DD/YYYY'));
+
+
+    // append elements to DOM to display them
+    rowEl.append(nameEL, typeEl, dateEl, deleteEl);
+    projectDisplayEl.append(rowEl);
+  
+}
