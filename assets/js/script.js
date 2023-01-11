@@ -59,12 +59,17 @@ function weather(lon,lat,APIKey){
           return response.json();
         })
         .then(function (data) {
+          
+          var today = dayjs();
+          // $('#currentDay').text(today.format('DD/MM/YYYY'));
+
             tempEl[0].textContent= Math.round(data.main.temp-273.15) + " \u00B0" + "F";
             windEl[0].textContent= data.wind.speed + " MPH";
             humidityEl[0].textContent=data.main.humidity + " %";
             iconEl[0].src= "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
-            dateEl[0].textContent = "(" + new Date(data.dt).toLocaleDateString() + ")";
+            dateEl[0].textContent = today.format('M/DD/YYYY');
             cityEl.textContent= data.name;
+            
         });
 }
 
@@ -99,8 +104,6 @@ function saveCitiesToStorage(cities) {
 
 // Gets project data from local storage and displays it
 function printCityData() {
-  // clear current cities on the page
-  projectDisplayEl.empty();
 
   // get cities from localStorage
   var cities = readCitiesFromStorage();
@@ -108,8 +111,6 @@ function printCityData() {
     // Create row and columns for project
     var rowEl = $('<tr>');
     var nameEL = $('<td>').text(project.name);
-    var typeEl = $('<td>').text(project.type);
-    var dateEl = $('<td>').text(projectDate.format('MM/DD/YYYY'));
 
 
     // append elements to DOM to display them

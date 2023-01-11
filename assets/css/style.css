@@ -36,7 +36,6 @@ h3 {
 }
 
 #area1{
-background-color: aqua;
 height: 150px;
 }
 
@@ -71,4 +70,17 @@ height: 150px;
 
 main div{
     width: 100%;
+}
+
+.form-control{
+    width:220px;
+    height: 40px;
+    border: black solid 1px;
+}
+
+.search-btn{
+    width: 220px;
+    height: 40px;
+    background-color: rgb(70,90,184);
+    color: black;
 }
