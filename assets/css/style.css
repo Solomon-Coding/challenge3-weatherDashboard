@@ -16,25 +16,58 @@ header {
     justify-content: center;
 }
 
+.card {
+    background-color: rgb(50,61,79);
+    color: white;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 1rem 0rem;
+    width: 115px;;
+}
+h3 {
+    font-weight: bold;
+    
+}
+.card-img-top {
+    width: 20px;
+    height: 20px;
+}
+
 #area1{
 background-color: aqua;
-height: 30px;
+height: 150px;
 }
+
+#todayTop{
+    display: flex;
+}
+
+.element {
+    margin: 0px 5px;
+}
+
+.input-group-sm {
+    width: 100px;
+}
+
 
 #area2{
     background-color:blueviolet;
     height: 50px;
 }
 #area3{
+    display: inline-block;
     background-color:brown;
     height: 150px;
     border:2px solid grey;
     border-radius: 2px;
 }
 #area4{
-    background-color:blue;
+    display: flex;
+    justify-content: space-between;
     height: 50px;
-    height: 150px;
 }
 
 main div{

@@ -19,24 +19,107 @@
   </header>
   <main class="container">
     <div class="row">
-      <div class="col-2">
-        <div id="area1" class="row">
-          search box
+      <div class="col-3">
+        <div id="area1" class="row">  
+          <h4>Search For a City:</h4>
+          <div class="input-group-sm">
+            <input type="text" class="form-control" placeholder="Location" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary search-btn" type="button">Search</button>
+            </div>
+          </div>
+
         </div>
         <div id="area2" class="row">
           search history
         </div>
       </div>
-      <div class="col-10">
+      <div class="col-9">
         <div class="row" id="area3">
-          <h3>City, Date</h3>
-          <div class="city"></div>
-          <div>Temp:</div>
-          <div>Wind:</div>
-          <div>Humidity:</div>
+          <div id="todayTop">
+            <h3 class="city element">Location</h3>
+            <h3 class="card-title element">Date</h3>
+            <img class="card-img-top element">
+          </div>
+            Temp: <span class="temp"></span>
+            <br>
+            Wind: <span class="wind"></span>
+            <br>
+            Humidity: <span class="humidity"></span>
+            <br>
         </div>
         <div class="row" id="area4">
-          5 day forcast
+          <h3>5-Day Forecast</h3>
+          <div class="card" style="width: auto;">
+            <div class="card-body">
+              <h5 class="card-title">Date</h5>
+              <img class="card-img-top" >
+              <!-- src="./assets/images/sunny.png" alt="Forecast Image" -->
+              <br>
+              Temp: <span class="temp"></span>
+              <br>
+              Wind: <span class="wind"></span>
+              <br>
+              Humidity: <span class="humidity"></span>
+              <br>
+            </div>
+          </div>
+
+          <div class="card" style="width: auto;">
+            <div class="card-body">
+              <h5 class="card-title">Date</h5>
+              <img class="card-img-top" src="./assets/images/sunny.png" alt="Card image cap">
+              <br>
+              Temp: <span class="temp"></span>
+              <br>
+              Wind: <span class="wind"></span>
+              <br>
+              Humidity: <span class="humidity"></span>
+              <br>
+            </div>
+          </div>
+
+          <div class="card" style="width: auto;">
+            <div class="card-body">
+              <h5 class="card-title">Date</h5>
+              <img class="card-img-top" src="./assets/images/sunny.png" alt="Card image cap">
+              <br>
+              Temp: <span class="temp"></span>
+              <br>
+              Wind: <span class="wind"></span>
+              <br>
+              Humidity: <span class="humidity"></span>
+              <br>
+            </div>
+          </div>
+
+          <div class="card" style="width: auto;">
+            <div class="card-body">
+              <h5 class="card-title">Date</h5>
+              <img class="card-img-top" src="./assets/images/sunny.png" alt="Card image cap">
+              <br>
+              Temp: <span class="temp"></span>
+              <br>
+              Wind: <span class="wind"></span>
+              <br>
+              Humidity: <span class="humidity"></span>
+              <br>
+            </div>
+          </div>
+
+          <div class="card" style="width: auto;">
+            <div class="card-body">
+              <h5 class="card-title">Date</h5>
+              <img class="card-img-top" src="./assets/images/sunny.png" alt="Card image cap">
+              <br>
+              Temp: <span class="temp"></span>
+              <br>
+              Wind: <span class="wind"></span>
+              <br>
+              Humidity: <span class="humidity"></span>
+              <br>
+            </div>
+          </div>
         </div>
       </div>
     </div>
